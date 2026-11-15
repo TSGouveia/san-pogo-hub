@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SanHub - San Pogo</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23111b2e' stroke='%2310b981' stroke-width='8'/%3E%3Cpath d='M4 50 H96' stroke='%2310b981' stroke-width='8'/%3E%3Ccircle cx='50' cy='50' r='18' fill='%23111b2e' stroke='%2310b981' stroke-width='8'/%3E%3Ccircle cx='50' cy='50' r='8' fill='%2310b981'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root {
+    --bg-primary:#0a1120; --bg-secondary:#121e36; --bg-tertiary:#1b2b4d;
+    --accent-color:#10b981; --accent-glow:rgba(16,185,129,.4);
+    --text-primary:#fff; --text-secondary:#9aa8c2; --text-muted:#64748b;
+    --border-color:#24375a; --glass-bg:rgba(18,30,54,.75); --glass-border:rgba(255,255,255,.06);
+    --shadow-md:0 10px 15px -3px rgba(0,0,0,.3),0 4px 6px -4px rgba(0,0,0,.3);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent }
+  body { background:var(--bg-primary); color:var(--text-primary); font-family:'Outfit',sans-serif; min-height:100vh; display:flex; flex-direction:column; line-height:1.5 }
+  .app-header { background:linear-gradient(135deg,var(--bg-secondary) 0%,var(--bg-primary) 100%); border-bottom:1px solid var(--border-color); padding:1.5rem 1rem }
+  .header-container { max-width:900px; margin:0 auto }
+  .logo-area { display:flex; align-items:center; gap:1rem }
+  .logo-icon { width:48px; height:48px; color:#10b981; filter:drop-shadow(0 0 8px rgba(16,185,129,.4)); animation:spin 8s linear infinite }
+  @keyframes spin { to { transform:rotate(360deg) } }
+  h1 { font-size:1.75rem; font-weight:800; letter-spacing:-.5px; line-height:1.1 }
+  h1 span { color:var(--accent-color) }
+  .subtitle { font-size:.85rem; color:var(--text-secondary); font-weight:500; text-transform:uppercase; letter-spacing:1px; margin-top:.1rem }
+  main { flex:1; width:100%; max-width:900px; margin:0 auto; padding:2rem 1rem }
+  .section-title { font-size:.8rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:1.5px; font-weight:600; margin-bottom:1rem }
+  .links { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1rem }
+  a.card { display:flex; flex-direction:column; gap:.75rem; text-decoration:none; color:inherit; background:var(--glass-bg);
+           border:1px solid var(--glass-border); border-radius:16px; padding:1.25rem; box-shadow:var(--shadow-md);
+           backdrop-filter:blur(8px); transition:all .3s cubic-bezier(.25,.8,.25,1) }
+  a.card:hover { transform:translateY(-3px); border-color:color-mix(in srgb,var(--c) 40%,transparent); box-shadow:0 12px 24px -6px color-mix(in srgb,var(--c) 25%,transparent) }
+  .card-top { display:flex; align-items:center; justify-content:space-between }
+  .icon { width:46px; height:46px; border-radius:12px; display:grid; place-items:center; font-size:1.25rem; color:var(--c);
+          background:color-mix(in srgb,var(--c) 14%,transparent); border:1px solid color-mix(in srgb,var(--c) 30%,transparent) }
+  .go { color:var(--text-muted); transition:all .25s }
+  a.card:hover .go { color:var(--c); transform:translateX(3px) }
+  .title { font-size:1.2rem; font-weight:800; letter-spacing:-.3px }
+  .title span { color:var(--c) }
+  .desc { color:var(--text-secondary); font-size:.9rem }
+  footer { text-align:center; color:var(--text-muted); font-size:.8rem; padding:1.5rem 1rem; border-top:1px solid var(--border-color) }
+  @media (hover:none) { a.card:hover { transform:none } }
+  @media (max-width:600px) {
+    .app-header { padding:calc(1rem + env(safe-area-inset-top)) 1rem 1rem }
+    .logo-icon { width:40px; height:40px }
+    h1 { font-size:1.5rem }
+    .subtitle { font-size:.72rem }
+    main { padding:1.25rem .75rem }
+    .links { grid-template-columns:1fr; gap:.7rem }
+    a.card { flex-direction:row; align-items:center; gap:.85rem; padding:.9rem 1rem; border-radius:14px }
+    .card-top { display:contents }
+    .icon { order:0; flex:none; width:42px; height:42px; font-size:1.1rem }
+    a.card > div:last-child { order:1; flex:1; min-width:0 }
+    .go { order:2; flex:none }
+    .title { font-size:1.05rem }
+    .desc { font-size:.82rem; line-height:1.35 }
+    footer { padding-bottom:calc(1.5rem + env(safe-area-inset-bottom)) }
+  }
+</style>
+</head>
+<body>
+<header class="app-header">
+  <div class="header-container">
+    <div class="logo-area">
+      <div class="logo-icon">
+        <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="6"/><path d="M4 50 H96" stroke="currentColor" stroke-width="6"/><circle cx="50" cy="50" r="18" fill="#111b2e" stroke="currentColor" stroke-width="6"/><circle cx="50" cy="50" r="8" fill="#10b981"/></svg>
+      </div>
+      <div><h1>San<span>Hub</span></h1><p class="subtitle">Ferramentas da comunidade</p></div>
+    </div>
+  </div>
+</header>
+<main>
+  <p class="section-title">Apps</p>
+  <div class="links" id="links"></div>
+</main>
+<footer>San Pogo</footer>
+<script>
+// Links do hub. url vazio = "em breve"
+const LINKS = [
+  { pre: 'San', title: 'Dex', desc: 'Pokédex e tracker da tua coleção no Pokémon GO', icon: 'fa-book-open', color: '#f5a623', url: 'https://san-pogodex.vercel.app/' },
+  { pre: 'San', title: 'Friends', desc: 'Encontra trainers e adiciona-os pelo QR code', icon: 'fa-user-group', color: '#38bdf8', url: 'https://san-pogofriends.vercel.app/' },
+  { pre: 'PoGo ', title: 'Coin Bag', desc: 'Projeto no GitHub', icon: 'fa-coins', color: '#10b981', url: 'https://github.com/TSGouveia/PoGo-Coin-Bag/' },
+];
+document.getElementById('links').innerHTML = LINKS.map(l => `
+  <a class="card" ${l.url ? `href="${l.url}" target="_blank" rel="noopener"` : ''} style="--c:${l.color};${l.url ? '' : 'opacity:.5;pointer-events:none'}">
+    <div class="card-top"><div class="icon"><i class="fa-solid ${l.icon}"></i></div>
+      <i class="go fa-solid ${l.url ? 'fa-arrow-right' : 'fa-clock'}"></i></div>
+    <div><div class="title">${l.pre}<span>${l.title}</span></div><div class="desc">${l.desc}</div></div>
+  </a>`).join('');
+</script>
+</body>
+</html>
