@@ -86,6 +86,7 @@ const LINKS = [
   { pre: 'San', title: 'Events', desc: 'Gera o infográfico semanal / mensal de eventos', icon: 'fa-calendar-days', color: '#a78bfa', url: 'https://san-pogodex.vercel.app/events-infographic.html' },
   { pre: 'San', title: 'Card', desc: 'Gera a ficha em imagem de qualquer Pokémon', icon: 'fa-image', color: '#f472b6', url: 'https://san-pogodex.vercel.app/pokemon-infographic.html' },
   { pre: 'PoGo ', title: 'Coin Bag', desc: 'Ativa o Coin Bag e apanha Gimmighoul sem Switch (PC, ESP32, Android, Wear OS)', icon: 'fa-coins', color: '#10b981', url: 'https://github.com/TSGouveia/PoGo-Coin-Bag/' },
+  { pre: 'PoGo ', title: 'Battle', desc: 'Assistente de PvP: equipas, matchups e análise ao vivo', icon: 'fa-shield-halved', color: '#ef4444', url: '' },
 ];
 document.getElementById('links').innerHTML = LINKS.map(l => `
   <a class="card" ${l.url ? `href="${l.url}" target="_blank" rel="noopener"` : ''} style="--c:${l.color};${l.url ? '' : 'opacity:.5;pointer-events:none'}">
